@@ -11,13 +11,16 @@ public class EntryPoint {
         int choice1,choice2;
         log.debug("");
         Scanner myObj = new Scanner(System.in);
+        log.info("Program Started");
         System.out.println("Choose the type of DataEntry \n1. Employee \n2. Student \nEnter the option: ");
         choice1 = myObj.nextInt();
         CommonList ll = null;
         if (choice1 == 1) {
                 ll = new CommonList<Employee>();
+                log.info("User has chosen Employee");
         } else {
-               ll = new CommonList<Student>();
+                ll = new CommonList<Student>();
+                log.info("User has chosen Student");
         }
         do {
             Human h = choice1 == 1? new Employee() : new Student() ;
