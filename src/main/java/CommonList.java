@@ -1,9 +1,11 @@
 import java.util.*;
+import org.apache.log4j.Logger;
 
 public class CommonList<T extends Human> {
 
     private List<T> inMemoryList = new ArrayList<T>();
     Scanner input;
+    private final Logger log = Logger.getRootLogger();
 
     public CommonList() {
         this.input = new Scanner(System.in);
@@ -25,10 +27,11 @@ public class CommonList<T extends Human> {
 
     public void add(T a){
         if (! this.checkRepeat(a)){
+            log.info("new object added");
             inMemoryList.add(a);
         }
         else {
-            System.out.println("Repeated Entry");
+            System.err.println("Repeated Entry");
         }
     }
     // delete the object at index provided.
@@ -36,10 +39,11 @@ public class CommonList<T extends Human> {
         System.out.println("Enter index to delete element(Index start with 1):");
         int x = input.nextInt();
         if ( x < 1 || x > this.length()){
-            System.out.println("Index out of bound");
+            System.err.println("Index out of bound");
         }
         else {
             inMemoryList.remove(x-1);
+            log.info("object deleted" + x);
             System.out.println("Object deleted");
         }
     }
@@ -48,14 +52,17 @@ public class CommonList<T extends Human> {
         if (! this.checkRepeat(a)) {
             System.out.println("Enter index to insert element(Index start with 1):");
             int x = input.nextInt();
+
             if (x < 1 || x > this.length()) {
                 inMemoryList.add(a);
+                log.info("new object added through insert at last");
             } else {
                 inMemoryList.add(x - 1, a);
+                log.info("new object added through insert at " + x);
             }
         }
         else {
-            System.out.println("Repeated Entry");
+            System.err.println("Repeated Entry");
         }
     }
 
