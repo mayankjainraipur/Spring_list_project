@@ -25,7 +25,7 @@ public class EntryPoint {
         do {
             Human h = choice1 == 1? new Employee() : new Student() ;
             System.out.flush();
-            System.out.println("1. ADD \n2. DELETE \n3. INSERT \n4. SORT LIST BY NAME \n5.SHOW ALL \n6. EXIT\n Enter your choice : ");
+            System.out.println("1. ADD \n2. DELETE \n3. INSERT \n4. SORT LIST BY NAME \n5. SHOW ALL \n6. EXIT\n Enter your choice : ");
             choice2 = myObj.nextInt();
             switch (choice2) {
                 case 1:
@@ -54,7 +54,7 @@ public class EntryPoint {
             }
             System.out.println("Press Any Key To Continue");
             System.in.read();
-        } while (choice2 != 5);
+        } while (choice2 != 6);
         myObj.close();
     }
 }
